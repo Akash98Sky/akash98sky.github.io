@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('koush.com:server');
+var debug = require('debug')('akash.com:server');
 var http = require('http');
 
 /**
