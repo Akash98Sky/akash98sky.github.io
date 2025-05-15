@@ -1,9 +1,11 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { aiPersonaChat } from '@/ai/flows/ai-persona-chat';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { MessageSquare } from 'lucide-react';
+import { Icons } from '@/components/icons'; // Added import for Icons
 
 interface AiChatWindowProps {
   
@@ -65,13 +67,15 @@ export const AiChatWindow: React.FC<AiChatWindowProps> = () => {
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <Button onClick={toggleChatVisibility} className='mb-2 transition-none rounded-full h-14 w-14 p-0' variant="outline">
-        <Avatar className="h-12 w-12">
-          <AvatarFallback>
-            <MessageSquare className="h-6 w-6" />
-          </AvatarFallback>
-        </Avatar>
-      </Button>
+      {!isChatVisible && ( // Conditionally render the toggle button
+        <Button onClick={toggleChatVisibility} className='mb-2 transition-none rounded-full h-14 w-14 p-0' variant="outline">
+          <Avatar className="h-12 w-12">
+            <AvatarFallback>
+              <MessageSquare className="h-6 w-6" />
+            </AvatarFallback>
+          </Avatar>
+        </Button>
+      )}
         <div
         className={chatWindowClasses}
         style={{
@@ -80,7 +84,15 @@ export const AiChatWindow: React.FC<AiChatWindowProps> = () => {
       >
           
         {isChatVisible && (
-          <div className="p-4">
+          <div className="p-4 relative"> {/* Added relative positioning for the close button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleChatVisibility}
+              className="absolute top-2 right-2 h-8 w-8" // Close button
+            >
+              <Icons.close className="h-4 w-4" />
+            </Button>
             <h2 className="text-lg font-semibold mb-2">AI Persona Chat</h2>
             <AIChatInterface />
           </div>
