@@ -1,20 +1,63 @@
 'use client';
 
-import {useEffect, useRef} from 'react';
+import { useRef } from 'react';
+import Link from 'next/link';
 import {Button} from '@/components/ui/button';
-import {Textarea} from '@/components/ui/textarea';
-import {useState} from 'react';
-import {aiPersonaChat} from '@/ai/flows/ai-persona-chat';
-
+import { AiChatWindow } from '@/components/ai-chat-window';
+ 
 const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
   ref.current?.scrollIntoView({behavior: 'smooth'});
 };
 
 export default function Home() {
   const experienceRef = useRef<HTMLElement>(null);
+  const projectCards = [
+    {
+      title: 'Project 1',
+      description: 'Description for Project 1. This is a brief summary of what the project does and its key features.',
+      githubLink: 'https://github.com/user/project1',
+    },
+    {
+      title: 'Project 2',
+      description: 'Description for Project 2. Another project with its own set of challenges and solutions.',
+      githubLink: 'https://github.com/user/project2',
+    },
+    {
+      title: 'Project 3',
+      description: 'Description for Project 3. The final project in this showcase, highlighting different skills.',
+      githubLink: 'https://github.com/user/project3',
+    },
+  ];
+
+  const ProjectCard = ({ title, description, githubLink }: { title: string; description: string; githubLink: string }) => {
+    return (
+      <div className="perspective-1000">
+        <div className="relative group transition-all duration-500 transform-style-3d hover:rotate-y-10 hover:scale-105">
+        <div className="bg-white rounded-lg p-6 shadow-lg transform-style-3d transition-all duration-500 hover:shadow-2xl">
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-gray-700 mb-4">{description}</p>
+          <div className="flex justify-end">
+            <Link href={githubLink} target="_blank" rel="noopener noreferrer">
+              <Button>
+                GitHub
+              </Button>
+            </Link>
+          </div>
+          <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+
+        </div>
+        </div>
+      </div>
+    );
+  };
+
+  
+
+
+
+
   const projectsRef = useRef<HTMLElement>(null);
   const achievementsRef = useRef<HTMLElement>(null);
-  const aiChatRef = useRef<HTMLElement>(null);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -32,10 +75,7 @@ export default function Home() {
               <Button variant="link" onClick={() => scrollToSection(achievementsRef)}>
                 Achievements
               </Button>
-              <Button variant="link" onClick={() => scrollToSection(aiChatRef)}>
-                AI Chat
-              </Button>
-            </div>
+              </div>
           </nav>
         </div>
       </header>
@@ -51,7 +91,13 @@ export default function Home() {
         <section id="projects" ref={projectsRef} className="py-20 bg-secondary">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-semibold mb-6">Projects</h2>
-            <p>Showcase personal projects with descriptions...</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projectCards.map((project, index) => (
+                <ProjectCard key={index} title={project.title} description={project.description} githubLink={project.githubLink} />
+              ))}
+            </div>
+          
+
           </div>
         </section>
 
@@ -62,13 +108,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="ai-chat" ref={aiChatRef} className="py-20 bg-secondary">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-semibold mb-6">AI Persona Chat</h2>
-            <AIChatInterface />
-          </div>
-        </section>
-      </main>
+                <AiChatWindow />
+               </main>
 
       <footer className="bg-primary text-primary-foreground py-6">
         <div className="container mx-auto px-4 text-center">
@@ -76,48 +117,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  );
-}
-
-function AIChatInterface() {
-  const [query, setQuery] = useState('');
-  const [response, setResponse] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  const handleQueryChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setQuery(e.target.value);
-  };
-
-  const handleSubmit = async () => {
-    setLoading(true);
-    try {
-      const result = await aiPersonaChat({query: query});
-      setResponse(result.response);
-    } catch (error) {
-      console.error('AI Chat Error:', error);
-      setResponse('Error fetching response. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className="space-y-4">
-      <Textarea
-        value={query}
-        onChange={handleQueryChange}
-        placeholder="Ask me anything about my experience, projects, and achievements..."
-        rows={4}
-        className="w-full"
-      />
-      <Button onClick={handleSubmit} disabled={loading}>
-        {loading ? 'Loading...' : 'Get Response'}
-      </Button>
-      {response && (
-        <div className="rounded-md p-4 bg-muted">
-          <p>{response}</p>
-        </div>
-      )}
-    </div>
-  );
-}
+  )
+};
