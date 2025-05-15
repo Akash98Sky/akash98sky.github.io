@@ -1,7 +1,9 @@
+
 'use client';
 
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {Button} from '@/components/ui/button';
 import { AiChatWindow } from '@/components/ai-chat-window';
  
@@ -83,8 +85,22 @@ export default function Home() {
       <main className="flex-grow">
         <section id="experience" ref={experienceRef} className="py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-semibold mb-6">Experience</h2>
-            <p>Concise summary of professional experience...</p>
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="md:w-2/3 md:pr-8">
+                <h2 className="text-3xl font-semibold mb-6">Experience</h2>
+                <p>Concise summary of professional experience...</p>
+              </div>
+              <div className="md:w-1/3 mt-8 md:mt-0 flex justify-center md:justify-end">
+                <Image
+                  src="https://placehold.co/200x200.png"
+                  alt="Profile Picture Placeholder"
+                  width={200}
+                  height={200}
+                  className="rounded-full shadow-lg"
+                  data-ai-hint="profile picture"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
