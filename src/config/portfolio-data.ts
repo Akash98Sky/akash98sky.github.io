@@ -64,17 +64,15 @@ export const portfolioData: PortfolioData = {
     { name: 'C#', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/csharp/csharp.png' },
     { name: 'HTML', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/html/html.png' },
     { name: 'CSS', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/css/css.png' },
-    { name: 'C/C++', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/cplusplus/cplusplus.png' },
+    { name: 'C/C++', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/cpp/cpp.png' },
     { name: 'Dart', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/dart/dart.png' },
     { name: 'Bash', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/bash/bash.png' },
-    { name: 'PowerShell', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/powershell/powershell.png' },
     { name: 'React', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/react/react.png' },
     { name: 'Angular', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/angular/angular.png' },
     { name: 'Flutter', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/flutter/flutter.png' },
     { name: '.NET', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/dotnet/dotnet.png' },
     { name: 'Next.js', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/nextjs/nextjs.png' },
     { name: 'SQL Server', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/microsoft-sql-server/microsoft-sql-server.png' },
-    { name: 'Cosmos DB', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/azure/azure.png' }, // Using general Azure icon
     { name: 'MongoDB', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/mongodb/mongodb.png' },
     { name: 'Postgres', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/postgresql/postgresql.png' },
     { name: 'Azure', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/azure/azure.png' },
@@ -82,9 +80,7 @@ export const portfolioData: PortfolioData = {
     { name: 'Firebase', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/firebase/firebase.png' },
     { name: 'GitHub Actions', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/github-actions/github-actions.png' },
     { name: 'Jenkins', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/jenkins/jenkins.png' },
-    { name: 'Azure DevOps', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/azure-devops/azure-devops.png' },
     { name: 'Docker', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/docker/docker.png' },
-    { name: 'Genkit', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/artificial-intelligence/artificial-intelligence.png' }, 
   ],
   projects: [
     {
