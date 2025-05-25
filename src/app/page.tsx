@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 bg-background z-50 py-4 shadow-sm border-b">
+      <header className="sticky top-0 bg-background z-50 py-4 shadow-lg">
         <div className="container mx-auto px-4">
           <nav className="flex justify-between items-center">
             <span className="font-bold text-xl text-foreground">My Portfolio</span>
