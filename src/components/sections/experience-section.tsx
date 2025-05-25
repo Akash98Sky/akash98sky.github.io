@@ -3,14 +3,11 @@
 
 import type { RefObject } from 'react';
 import Image from 'next/image';
-
-interface ExperienceSectionProps {
-  experienceRef: RefObject<HTMLElement>;
-}
+import { portfolioData } from '@/config/portfolio-data';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Briefcase } from 'lucide-react';
 
 // SVG definition for the splash clip path
-// This SVG is defined with width="0" height="0" and absolute positioning
-// to prevent it from taking up space in the layout.
 const SplashClipPathDefinition = () => (
   <svg width="0" height="0" className="absolute">
     <defs>
@@ -21,14 +18,17 @@ const SplashClipPathDefinition = () => (
   </svg>
 );
 
-export function ExperienceSection({ experienceRef }: ExperienceSectionProps) {
+export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<HTMLElement> }) {
+  const { summary, profileImage, profileImageAiHint, items } = portfolioData.experience;
+
   return (
     <section id="experience" ref={experienceRef} className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
+        <div className="flex flex-col md:flex-row items-start md:items-center mb-12">
           <div className="md:w-2/3 md:pr-8">
-            <h2 className="text-3xl font-semibold mb-6 text-foreground">Experience</h2>
-            <p className="text-muted-foreground">Concise summary of professional experience...</p>
+            <h2 className="text-3xl font-semibold mb-2 text-foreground">About Me</h2>
+            <p className="text-lg text-muted-foreground mb-6">{portfolioData.personalInfo.title}</p>
+            <p className="text-muted-foreground leading-relaxed">{summary}</p>
           </div>
           <div className="md:w-1/3 mt-8 md:mt-0 flex justify-center md:justify-end">
             <SplashClipPathDefinition />
@@ -41,16 +41,40 @@ export function ExperienceSection({ experienceRef }: ExperienceSectionProps) {
               }}
             >
               <Image
-                src="https://placehold.co/200x200.png"
-                alt="Profile Picture Placeholder"
+                src={profileImage}
+                alt="Profile Picture"
                 width={200}
                 height={200}
-                className="" // Removed rounded-full and border
-                data-ai-hint="profile picture"
-                style={{ display: 'block', width: '100%', height: '100%' }}
+                data-ai-hint={profileImageAiHint}
+                style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           </div>
+        </div>
+
+        <h3 className="text-2xl font-semibold mb-8 text-foreground text-center md:text-left">Professional Experience</h3>
+        <div className="space-y-8">
+          {items.map((item, index) => (
+            <Card key={index} className="shadow-md hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <div className="flex items-center space-x-3">
+                  <Briefcase className="w-6 h-6 text-primary" />
+                  <div>
+                    <CardTitle className="text-xl text-primary">{item.role}</CardTitle>
+                    <p className="text-md font-medium text-foreground">{item.company}</p>
+                    <p className="text-sm text-muted-foreground">{item.duration}</p>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                  {item.descriptionPoints.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

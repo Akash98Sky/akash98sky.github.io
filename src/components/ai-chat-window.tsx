@@ -9,6 +9,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { MessageSquare, SendHorizonal } from 'lucide-react';
 import { Icons } from '@/components/icons';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { portfolioData } from '@/config/portfolio-data'; // Import portfolio data
 
 interface AiChatWindowProps {
   // Props can be added here if needed in the future
@@ -21,7 +22,6 @@ interface Message {
   timestamp: Date;
 }
 
-// Renamed and refactored AIChatInterface to ChatBoxContent
 function ChatBoxContent() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputQuery, setInputQuery] = useState('');
@@ -52,7 +52,8 @@ function ChatBoxContent() {
     setLoading(true);
 
     try {
-      const result = await aiPersonaChat({ query: currentQuery });
+      // Pass portfolioData to the AI chat flow
+      const result = await aiPersonaChat({ query: currentQuery, portfolioData });
       const aiResponseMessage: Message = {
         id: `${Date.now()}-ai`,
         sender: 'ai',
@@ -198,10 +199,11 @@ export const AiChatWindow: React.FC<AiChatWindowProps> = () => {
             <div className="flex items-center justify-between p-3 border-b bg-muted/30">
               <div className="flex items-center space-x-3">
                 <Avatar className="h-9 w-9">
-                  <AvatarFallback>AI</AvatarFallback>
+                  {/* Could use an actual image or initials from portfolioData.personalInfo.name */}
+                  <AvatarFallback>{portfolioData.personalInfo.name.substring(0,2).toUpperCase() || 'AI'}</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h2 id="ai-chat-window-title" className="text-base font-semibold">AI Assistant</h2>
+                  <h2 id="ai-chat-window-title" className="text-base font-semibold">{portfolioData.personalInfo.name}</h2>
                   <p className="text-xs text-green-600 dark:text-green-400 font-medium">Online</p>
                 </div>
               </div>
