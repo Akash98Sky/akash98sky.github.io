@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { AiChatWindow } from '@/components/ai-chat-window';
 import { ExperienceSection } from '@/components/sections/experience-section';
@@ -17,9 +17,28 @@ export default function Home() {
   const projectsRef = useRef<HTMLElement>(null);
   const achievementsRef = useRef<HTMLElement>(null);
 
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      // Show header if scrolling up or if near the top of the page
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 bg-background z-50 py-4 shadow-lg">
+      <header
+        className={`sticky top-0 bg-background z-50 py-4 shadow-lg transition-transform duration-300 ease-in-out ${
+          visible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
         <div className="container mx-auto px-4">
           <nav className="flex justify-between items-center">
             <span className="font-bold text-xl text-foreground">My Portfolio</span>
