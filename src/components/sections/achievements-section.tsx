@@ -5,10 +5,7 @@ import type { RefObject } from 'react';
 import { portfolioData } from '@/config/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Trophy, Star } from 'lucide-react'; // Example icons
-
-interface AchievementsSectionProps {
-  achievementsRef: RefObject<HTMLElement>;
-}
+import type { AchievementsSectionProps } from '@/interfaces/components';
 
 // Helper to select an icon based on index or some logic
 const getAchievementIcon = (index: number) => {

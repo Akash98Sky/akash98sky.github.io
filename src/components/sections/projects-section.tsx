@@ -9,12 +9,11 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { Badge } from '@/components/ui/badge';
 import { Github, ExternalLink } from 'lucide-react';
 import { portfolioData } from '@/config/portfolio-data';
+import type { ProjectItem } from '@/interfaces/portfolio';
+import type { ProjectsSectionProps } from '@/interfaces/components';
 
-interface ProjectsSectionProps {
-  projectsRef: RefObject<HTMLElement>;
-}
 
-const ProjectCard = ({ project }: { project: typeof portfolioData.projects[0] }) => {
+const ProjectCard = ({ project }: { project: ProjectItem }) => {
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border rounded-xl">
       <CardHeader className="p-0">
@@ -46,8 +45,8 @@ const ProjectCard = ({ project }: { project: typeof portfolioData.projects[0] })
           </Link>
         )}
         <Link href={project.githubLink} target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-          <Button variant="default" size="sm">
-            <Github className="mr-2 h-4 w-4" /> GitHub
+          <Button variant="outline" size="icon" className="w-9 h-9">
+            <Github className="h-4 w-4" />
           </Button>
         </Link>
       </CardFooter>

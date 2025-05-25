@@ -2,12 +2,9 @@
 'use client';
 
 import type { RefObject } from 'react';
-import Image from 'next/image'; // Import next/image
+import Image from 'next/image'; 
 import { portfolioData } from '@/config/portfolio-data';
-
-interface SkillsSectionProps {
-  skillsRef: RefObject<HTMLElement>;
-}
+import type { SkillsSectionProps } from '@/interfaces/components';
 
 export function SkillsSection({ skillsRef }: SkillsSectionProps) {
   const skills = portfolioData.skills;
@@ -26,7 +23,7 @@ export function SkillsSection({ skillsRef }: SkillsSectionProps) {
                 <Image
                   src={skill.iconUrl}
                   alt={`${skill.name} logo`}
-                  width={48}
+                  width={48} 
                   height={48}
                   data-ai-hint={skill.name.toLowerCase()}
                   className="object-contain transition-transform duration-300 group-hover:scale-110" 

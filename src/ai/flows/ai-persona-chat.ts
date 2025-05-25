@@ -10,9 +10,7 @@
 
 import {ai} from '@/ai/ai-instance';
 import {z} from 'genkit';
-// Assuming PortfolioData structure is similar to what's in portfolio-data.ts
-// For simplicity, using z.any(). In a real app, you might want to define Zod schemas for PortfolioData.
-import type { PortfolioData } from '@/config/portfolio-data';
+import type { PortfolioData } from '@/interfaces/portfolio';
 
 
 const AIPersonaChatInputSchema = z.object({
@@ -74,7 +72,7 @@ Query: {{{query}}}`,
 });
 
 const aiPersonaChatFlow = ai.defineFlow<
-  AIPersonaChatInput, // Use the inferred type directly
+  AIPersonaChatInput, 
   AIPersonaChatOutput
 >(
   {
@@ -82,10 +80,9 @@ const aiPersonaChatFlow = ai.defineFlow<
     inputSchema: AIPersonaChatInputSchema,
     outputSchema: AIPersonaChatOutputSchema,
   },
-  async (input: AIPersonaChatInput) => { // Explicitly type input here for clarity
+  async (input: AIPersonaChatInput) => { 
     const {output} = await prompt(input);
     if (!output) {
-      // Handle the case where output might be null or undefined if the prompt fails or returns nothing
       return { response: "I'm sorry, I couldn't generate a response at this moment." };
     }
     return output;

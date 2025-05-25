@@ -9,18 +9,9 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { MessageSquare, SendHorizonal } from 'lucide-react';
 import { Icons } from '@/components/icons';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { portfolioData } from '@/config/portfolio-data'; // Import portfolio data
+import { portfolioData } from '@/config/portfolio-data'; 
+import type { AiChatWindowProps, Message } from '@/interfaces/components';
 
-interface AiChatWindowProps {
-  // Props can be added here if needed in the future
-}
-
-interface Message {
-  id: string;
-  sender: 'user' | 'ai';
-  text: string;
-  timestamp: Date;
-}
 
 function ChatBoxContent() {
   const [messages, setMessages] = useState<Message[]>([]);
