@@ -21,7 +21,7 @@ export interface ExperienceData {
 
 export interface SkillItem {
   name: string;
-  iconKey: string; // Maps to an icon component in SkillsSection
+  iconUrl: string; // Changed from iconKey to iconUrl
 }
 
 export interface ProjectItem {
@@ -49,8 +49,8 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   personalInfo: {
-    name: "Alex Johnson", // Customizable Name
-    title: "Senior Software Engineer", // Customizable Title
+    name: "Alex Johnson",
+    title: "Senior Software Engineer",
   },
   experience: {
     summary:
@@ -82,19 +82,19 @@ export const portfolioData: PortfolioData = {
     ],
   },
   skills: [
-    { name: 'JavaScript', iconKey: 'javascript' },
-    { name: 'TypeScript', iconKey: 'typescript' },
-    { name: 'React', iconKey: 'react' },
-    { name: 'Next.js', iconKey: 'nextjs' },
-    { name: 'Node.js', iconKey: 'nodejs' },
-    { name: 'Python', iconKey: 'python' }, // Example of adding a new skill
-    { name: 'Tailwind CSS', iconKey: 'tailwind' },
-    { name: 'HTML5', iconKey: 'html5' },
-    { name: 'CSS3', iconKey: 'css3' },
-    { name: 'Git', iconKey: 'git' },
-    { name: 'Docker', iconKey: 'docker' }, // Example
-    { name: 'AWS', iconKey: 'aws' },     // Example
-    { name: 'Genkit', iconKey: 'genkit' },
+    { name: 'JavaScript', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/javascript/javascript.png' },
+    { name: 'TypeScript', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/typescript/typescript.png' },
+    { name: 'React', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/react/react.png' },
+    { name: 'Next.js', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/nextjs/nextjs.png' },
+    { name: 'Node.js', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/nodejs/nodejs.png' },
+    { name: 'Python', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/python/python.png' },
+    { name: 'Tailwind CSS', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/tailwind/tailwind.png' },
+    { name: 'HTML5', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/html5/html5.png' },
+    { name: 'CSS3', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/css3/css3.png' },
+    { name: 'Git', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/git/git.png' },
+    { name: 'Docker', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/docker/docker.png' },
+    { name: 'AWS', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/aws/aws.png' },
+    { name: 'Genkit', iconUrl: 'https://raw.githubusercontent.com/github/explore/80688e429a7d40f836591846a32f51983132350F/topics/artificial-intelligence/artificial-intelligence.png' }, // Using a generic AI icon
   ],
   projects: [
     {
