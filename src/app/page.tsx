@@ -7,6 +7,7 @@ import { AiChatWindow } from '@/components/ai-chat-window';
 import { ExperienceSection } from '@/components/sections/experience-section';
 import { ProjectsSection } from '@/components/sections/projects-section';
 import { AchievementsSection } from '@/components/sections/achievements-section';
+import { SkillsSection } from '@/components/sections/skills-section';
 
 const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
   ref.current?.scrollIntoView({ behavior: 'smooth' });
@@ -14,6 +15,7 @@ const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
 
 export default function Home() {
   const experienceRef = useRef<HTMLElement>(null);
+  const skillsRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<HTMLElement>(null);
   const achievementsRef = useRef<HTMLElement>(null);
 
@@ -23,7 +25,6 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      // Show header if scrolling up or if near the top of the page
       setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
       setPrevScrollPos(currentScrollPos);
     };
@@ -46,6 +47,9 @@ export default function Home() {
               <Button variant="link" onClick={() => scrollToSection(experienceRef)} className="text-foreground">
                 Experience
               </Button>
+              <Button variant="link" onClick={() => scrollToSection(skillsRef)} className="text-foreground">
+                Skills
+              </Button>
               <Button variant="link" onClick={() => scrollToSection(projectsRef)} className="text-foreground">
                 Projects
               </Button>
@@ -59,6 +63,7 @@ export default function Home() {
 
       <main className="flex-grow">
         <ExperienceSection experienceRef={experienceRef} />
+        <SkillsSection skillsRef={skillsRef} />
         <ProjectsSection projectsRef={projectsRef} />
         <AchievementsSection achievementsRef={achievementsRef} />
         <AiChatWindow />
@@ -72,3 +77,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
