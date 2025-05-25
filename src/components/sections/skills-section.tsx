@@ -20,16 +20,16 @@ export function SkillsSection({ skillsRef }: SkillsSectionProps) {
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="group bg-card p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 flex flex-col items-center text-center border border-border"
+              className="group bg-card/50 dark:bg-black/30 backdrop-blur-lg p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex flex-col items-center text-center border border-border/20"
             >
-              <div className="mb-4 transition-transform duration-300 group-hover:scale-110">
+              <div className="mb-4 animate-float">
                 <Image
                   src={skill.iconUrl}
                   alt={`${skill.name} logo`}
-                  width={32}
-                  height={32}
+                  width={48}
+                  height={48}
                   data-ai-hint={skill.name.toLowerCase()}
-                  className="object-contain" // Added for better image scaling if not square
+                  className="object-contain transition-transform duration-300 group-hover:scale-110" 
                 />
               </div>
               <h3 className="text-lg font-medium text-card-foreground">{skill.name}</h3>
