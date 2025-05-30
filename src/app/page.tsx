@@ -43,7 +43,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <nav className="flex justify-between items-center">
             <span className="font-bold text-xl text-foreground">{portfolioData.personalInfo.name}'s Portfolio</span>
-            <div className="space-x-4">
+            <div className="hidden md:flex space-x-4">
               <Button variant="link" onClick={() => scrollToSection(experienceRef)} className="text-foreground">
                 Experience
               </Button>
