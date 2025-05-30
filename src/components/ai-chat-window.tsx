@@ -4,7 +4,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { aiPersonaChat } from '@/ai/flows/ai-persona-chat';
+// Removed import of aiPersonaChat as it won't be called
+// import { aiPersonaChat } from '@/ai/flows/ai-persona-chat'; 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { MessageSquare, SendHorizonal } from 'lucide-react';
 import { Icons } from '@/components/icons';
@@ -38,32 +39,44 @@ function ChatBoxContent() {
     };
     setMessages((prevMessages) => [...prevMessages, newUserMessage]);
     
-    const currentQuery = inputQuery;
+    // const currentQuery = inputQuery; // No longer needed for AI call
     setInputQuery('');
     setLoading(true);
 
-    try {
-      // Pass portfolioData to the AI chat flow
-      const result = await aiPersonaChat({ query: currentQuery, portfolioData });
-      const aiResponseMessage: Message = {
-        id: `${Date.now()}-ai`,
+    // Simulate a short delay and then show a message that AI chat is disabled
+    setTimeout(() => {
+      const aiDisabledMessage: Message = {
+        id: `${Date.now()}-ai-disabled`,
         sender: 'ai',
-        text: result.response,
+        text: "AI chat functionality is currently unavailable in this static version of the application.",
         timestamp: new Date(),
       };
-      setMessages((prevMessages) => [...prevMessages, aiResponseMessage]);
-    } catch (error) {
-      console.error('AI Chat Error:', error);
-      const errorMessage: Message = {
-        id: `${Date.now()}-error`,
-        sender: 'ai',
-        text: 'Sorry, I encountered an error. Please try again.',
-        timestamp: new Date(),
-      };
-      setMessages((prevMessages) => [...prevMessages, errorMessage]);
-    } finally {
+      setMessages((prevMessages) => [...prevMessages, aiDisabledMessage]);
       setLoading(false);
-    }
+    }, 500);
+
+    // Original AI call is removed for static deployment
+    // try {
+    //   const result = await aiPersonaChat({ query: currentQuery, portfolioData });
+    //   const aiResponseMessage: Message = {
+    //     id: `${Date.now()}-ai`,
+    //     sender: 'ai',
+    //     text: result.response,
+    //     timestamp: new Date(),
+    //   };
+    //   setMessages((prevMessages) => [...prevMessages, aiResponseMessage]);
+    // } catch (error) {
+    //   console.error('AI Chat Error:', error);
+    //   const errorMessage: Message = {
+    //     id: `${Date.now()}-error`,
+    //     sender: 'ai',
+    //     text: 'Sorry, I encountered an error. Please try again.',
+    //     timestamp: new Date(),
+    //   };
+    //   setMessages((prevMessages) => [...prevMessages, errorMessage]);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   return (
@@ -78,7 +91,7 @@ function ChatBoxContent() {
           >
             {msg.sender === 'ai' && (
               <Avatar className="h-8 w-8 mr-2 self-end shrink-0">
-                <AvatarFallback>AI</AvatarFallback>
+                <AvatarFallback>{portfolioData.personalInfo.name.substring(0,1).toUpperCase() || 'P'}</AvatarFallback>
               </Avatar>
             )}
             <div
@@ -105,7 +118,7 @@ function ChatBoxContent() {
         {loading && (
           <div className="flex items-end space-x-2 mb-3 justify-start">
             <Avatar className="h-8 w-8 mr-2 self-end shrink-0">
-              <AvatarFallback>AI</AvatarFallback>
+               <AvatarFallback>{portfolioData.personalInfo.name.substring(0,1).toUpperCase() || 'P'}</AvatarFallback>
             </Avatar>
             <div className="p-3 rounded-lg bg-muted text-foreground shadow-sm rounded-bl-none">
               <p className="text-sm italic">Typing...</p>
@@ -190,7 +203,6 @@ export const AiChatWindow: React.FC<AiChatWindowProps> = () => {
             <div className="flex items-center justify-between p-3 border-b bg-muted/30">
               <div className="flex items-center space-x-3">
                 <Avatar className="h-9 w-9">
-                  {/* Could use an actual image or initials from portfolioData.personalInfo.name */}
                   <AvatarFallback>{portfolioData.personalInfo.name.substring(0,2).toUpperCase() || 'AI'}</AvatarFallback>
                 </Avatar>
                 <div>
@@ -215,3 +227,4 @@ export const AiChatWindow: React.FC<AiChatWindowProps> = () => {
     </>
   );
 };
+
