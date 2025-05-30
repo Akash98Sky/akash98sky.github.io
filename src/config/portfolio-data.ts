@@ -10,7 +10,7 @@ export const portfolioData: PortfolioData = {
   experience: {
     summary:
       "Full Stack Engineer with 3+ years of expertise in end-to-end application development, CI/CD, and automation. High-Flyer Award winner - adapting seamlessly to any challenge to deliver scalable, business-aligned solutions.",
-    profileImage: "https://placehold.co/200x200.png",
+    profileImage: "/profile.jpg",
     profileImageAiHint: "professional portrait",
     items: [
       {

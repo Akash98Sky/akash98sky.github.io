@@ -35,16 +35,16 @@ export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<
             <div
               className="relative shadow-lg"
               style={{
-                width: 200,
-                height: 200,
+                width: 250, // Increased size
+                height: 250, // Increased size
                 clipPath: 'url(#splashClipPath)',
               }}
             >
               <Image
                 src={profileImage}
                 alt="Profile Picture"
-                width={200}
-                height={200}
+                width={250} // Increased size
+                height={250} // Increased size
                 data-ai-hint={profileImageAiHint}
                 style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
               />
