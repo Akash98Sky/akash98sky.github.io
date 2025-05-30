@@ -94,7 +94,7 @@ export const portfolioData: PortfolioData = {
       imageUrl: 'https://placehold.co/600x400.png',
       imageAiHint: 'ai chatbot telegram',
       tags: ['Python', 'asyncio', 'LLM', 'Gemini-Pro', 'FastAPI', 'Docker'],
-      liveDemoLink: '#',
+      liveDemoLink: 'https://t.me/MyGemibot',
       githubLink: 'https://github.com/Akash98Sky/gemi-chat-bot',
     },
     {
@@ -104,7 +104,7 @@ export const portfolioData: PortfolioData = {
       imageUrl: 'https://placehold.co/600x400.png',
       imageAiHint: 'heritage archaeology website',
       tags: ['React', 'Next.js', 'Node.js', 'MongoDB', 'AWS', 'Strapi CMS'],
-      liveDemoLink: '#',
+      liveDemoLink: 'https://sham.org.in/',
       githubLink: 'https://github.com/Akash98Sky/sham-website',
     },
     {
