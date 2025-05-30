@@ -10,13 +10,14 @@ export const portfolioData: PortfolioData = {
   experience: {
     summary:
       "Full Stack Engineer with 3+ years of expertise in end-to-end application development, CI/CD, and automation. High-Flyer Award winner - adapting seamlessly to any challenge to deliver scalable, business-aligned solutions.",
-    profileImage: "https://placehold.co/200x200.png", // Placeholder, suggest replacing with actual image
+    profileImage: "https://placehold.co/200x200.png",
     profileImageAiHint: "professional portrait",
     items: [
       {
         role: "Senior Software Engineer",
         company: "Optum",
-        duration: "Dec 2024 - Present", // As per CV, though it's a future date
+        companyUrl: "https://www.optum.in/",
+        duration: "Dec 2024 - Present",
         descriptionPoints: [
           "Spearheaded the migration of CI/CD pipelines from Azure DevOps to GitHub Actions, leveraging composite actions to achieve a 50% performance boost and reduce deployment failures by 25%.",
           "Automated SQL script generation via a .NET Console app, reducing manual data replication efforts by 90% for demo environments.",
@@ -27,6 +28,7 @@ export const portfolioData: PortfolioData = {
       {
         role: "Software Engineer",
         company: "Optum",
+        companyUrl: "https://www.optum.in/",
         duration: "Jul 2022 - Nov 2024",
         descriptionPoints: [
           "Engineered a custom-triggered Azure function (.NET) to optimize message consumption from Apache Pulsar Message Bus, demonstrating expertise in problem-solving, slashing infrastructure costs by 30% compared to traditional app services.",
@@ -39,6 +41,7 @@ export const portfolioData: PortfolioData = {
       {
         role: "Software Developer Intern",
         company: "Giva",
+        companyUrl: "https://www.giva.co/",
         duration: "Mar 2022 - Jun 2022",
         descriptionPoints: [
           "Implemented keyword-based search functionality using Elasticsearch on Giva's FAQ page, improving search accuracy by 35% and reducing customer support tickets by 15%.",
@@ -49,6 +52,7 @@ export const portfolioData: PortfolioData = {
       {
         role: "Node.js Developer Intern",
         company: "Monkhub",
+        companyUrl: "https://monkhub.com/",
         duration: "Aug 2021 - Dec 2021",
         descriptionPoints: [
           "Implemented an interactive calendar blocking system, reducing scheduling conflicts by 40% and improving user engagement.",
@@ -78,7 +82,7 @@ export const portfolioData: PortfolioData = {
     { name: 'Azure', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/azure/azure.png' },
     { name: 'AWS', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/aws/aws.png' },
     { name: 'Firebase', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/firebase/firebase.png' },
-    { name: 'GitHub Actions', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/github/github.png' },
+    { name: 'GitHub Actions', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/github/github.png' }, // Using GitHub icon as a proxy
     { name: 'Jenkins', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/jenkins/jenkins.png' },
     { name: 'Docker', iconUrl: 'https://raw.githubusercontent.com/github/explore/main/topics/docker/docker.png' },
   ],
@@ -90,8 +94,8 @@ export const portfolioData: PortfolioData = {
       imageUrl: 'https://placehold.co/600x400.png',
       imageAiHint: 'ai chatbot telegram',
       tags: ['Python', 'asyncio', 'LLM', 'Gemini-Pro', 'FastAPI', 'Docker'],
-      liveDemoLink: '#', // CV mentions 'link' but no URL
-      githubLink: 'https://github.com/Akash98Sky/gemi-chat-bot', // Assumed link based on CV
+      liveDemoLink: '#',
+      githubLink: 'https://github.com/Akash98Sky/gemi-chat-bot',
     },
     {
       title: 'SHAM Website',
@@ -100,8 +104,8 @@ export const portfolioData: PortfolioData = {
       imageUrl: 'https://placehold.co/600x400.png',
       imageAiHint: 'heritage archaeology website',
       tags: ['React', 'Next.js', 'Node.js', 'MongoDB', 'AWS', 'Strapi CMS'],
-      liveDemoLink: '#', // CV mentions 'link' but no URL
-      githubLink: 'https://github.com/Akash98Sky/sham-website', // Placeholder, as not specified as open source
+      liveDemoLink: '#',
+      githubLink: 'https://github.com/Akash98Sky/sham-website',
     },
     {
       title: 'Flaavn',
@@ -110,7 +114,7 @@ export const portfolioData: PortfolioData = {
       imageUrl: 'https://placehold.co/600x400.png',
       imageAiHint: 'music streaming mobile',
       tags: ['Flutter', 'Next.js', 'REST API'],
-      githubLink: 'https://github.com/Akash98Sky/flaavn', // Assumed link based on CV
+      githubLink: 'https://github.com/Akash98Sky/flaavn',
     },
   ],
   achievements: [

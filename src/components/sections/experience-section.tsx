@@ -5,7 +5,7 @@ import type { RefObject } from 'react';
 import Image from 'next/image';
 import { portfolioData } from '@/config/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, ExternalLink } from 'lucide-react';
 
 // SVG definition for the splash clip path
 const SplashClipPathDefinition = () => (
@@ -61,7 +61,19 @@ export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<
                   <Briefcase className="w-6 h-6 text-primary" />
                   <div>
                     <CardTitle className="text-xl text-primary">{item.role}</CardTitle>
-                    <p className="text-md font-medium text-foreground">{item.company}</p>
+                    {item.companyUrl ? (
+                      <a
+                        href={item.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-md font-medium text-foreground hover:underline inline-flex items-center group"
+                      >
+                        {item.company}
+                        <ExternalLink className="ml-1 h-4 w-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+                      </a>
+                    ) : (
+                      <p className="text-md font-medium text-foreground">{item.company}</p>
+                    )}
                     <p className="text-sm text-muted-foreground">{item.duration}</p>
                   </div>
                 </div>

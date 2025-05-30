@@ -9,6 +9,7 @@ export interface PersonalInfo {
 export interface ExperienceItem {
   role: string;
   company: string;
+  companyUrl?: string; // Added optional company URL
   duration: string;
   descriptionPoints: string[];
 }
