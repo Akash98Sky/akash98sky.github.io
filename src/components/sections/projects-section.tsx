@@ -44,11 +44,13 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => {
             </Button>
           </Link>
         )}
-        <Link href={project.githubLink} target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-          <Button variant="outline" size="icon" className="w-9 h-9">
-            <Github className="h-4 w-4" />
-          </Button>
-        </Link>
+        {project.githubLink && (
+          <Link href={project.githubLink} target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+            <Button variant="outline" size="icon" className="w-9 h-9">
+              <Github className="h-4 w-4" />
+            </Button>
+          </Link>
+        )}
       </CardFooter>
     </Card>
   );

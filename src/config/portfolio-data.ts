@@ -105,7 +105,7 @@ export const portfolioData: PortfolioData = {
       imageAiHint: 'heritage archaeology website',
       tags: ['React', 'Next.js', 'Node.js', 'MongoDB', 'AWS', 'Strapi CMS'],
       liveDemoLink: 'https://sham.org.in/',
-      githubLink: 'https://github.com/Akash98Sky/sham-website',
+      // githubLink: 'https://github.com/Akash98Sky/sham-website', // Removed GitHub link
     },
     {
       title: 'Flaavn',

@@ -33,7 +33,7 @@ export interface ProjectItem {
   imageAiHint: string;
   tags: string[];
   liveDemoLink?: string;
-  githubLink: string;
+  githubLink?: string; // Made githubLink optional
 }
 
 export interface AchievementItem {
