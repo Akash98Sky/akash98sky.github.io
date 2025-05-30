@@ -24,13 +24,13 @@ export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<
   return (
     <section id="experience" ref={experienceRef} className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-start md:items-center mb-12">
-          <div className="md:w-2/3 md:pr-8">
+        <div className="flex flex-col-reverse items-center md:flex-row md:items-center mb-12">
+          <div className="w-full md:w-2/3 md:pr-8 text-center md:text-left">
             <h2 className="text-3xl font-semibold mb-2 text-foreground">About Me</h2>
             <p className="text-lg text-muted-foreground mb-6">{portfolioData.personalInfo.title}</p>
             <p className="text-muted-foreground leading-relaxed">{summary}</p>
           </div>
-          <div className="md:w-1/3 mt-8 md:mt-0 flex justify-center md:justify-end">
+          <div className="w-full md:w-1/3 mb-8 md:mb-0 flex justify-center md:justify-end">
             <SplashClipPathDefinition />
             <div
               className="relative shadow-lg"
