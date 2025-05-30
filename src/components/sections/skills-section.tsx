@@ -2,7 +2,7 @@
 'use client';
 
 import type { RefObject } from 'react';
-import Image from 'next/image'; 
+import Image from 'next/image';
 import { portfolioData } from '@/config/portfolio-data';
 import type { SkillsSectionProps } from '@/interfaces/components';
 
@@ -17,16 +17,16 @@ export function SkillsSection({ skillsRef }: SkillsSectionProps) {
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="group bg-card/50 dark:bg-black/30 backdrop-blur-lg p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex flex-col items-center text-center border border-border/20"
+              className="group bg-card/50 dark:bg-black/30 backdrop-blur-lg p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex flex-col h-full justify-center items-center text-center border border-border/20"
             >
               <div className="mb-4 animate-float">
                 <Image
                   src={skill.iconUrl}
                   alt={`${skill.name} logo`}
-                  width={48} 
+                  width={48}
                   height={48}
                   data-ai-hint={skill.name.toLowerCase()}
-                  className="object-contain transition-transform duration-300 group-hover:scale-110" 
+                  className="object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
               <h3 className="text-lg font-medium text-card-foreground">{skill.name}</h3>
