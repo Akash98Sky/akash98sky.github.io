@@ -3,7 +3,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { AiChatWindow } from '@/components/ai-chat-window';
 import { ExperienceSection } from '@/components/sections/experience-section';
 import { ProjectsSection } from '@/components/sections/projects-section';
 import { AchievementsSection } from '@/components/sections/achievements-section';
@@ -67,7 +66,6 @@ export default function Home() {
         <SkillsSection skillsRef={skillsRef} />
         <ProjectsSection projectsRef={projectsRef} />
         <AchievementsSection achievementsRef={achievementsRef} />
-        <AiChatWindow />
       </main>
 
       <footer className="bg-primary text-primary-foreground py-6 border-t">
