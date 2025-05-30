@@ -2,7 +2,7 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export', // Added for static site generation
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -24,6 +24,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+    unoptimized: true, // Added for static export with next/image
   },
 };
 
