@@ -95,7 +95,7 @@ export const portfolioData: PortfolioData = {
       imageAiHint: 'ai chatbot telegram',
       tags: ['Python', 'asyncio', 'LLM', 'Gemini-Pro', 'FastAPI', 'Docker'],
       liveDemoLink: 'https://t.me/MyGemibot',
-      githubLink: 'https://github.com/Akash98Sky/gemi-chat-bot',
+      githubLink: 'https://github.com/Akash98Sky/gemi-bot',
     },
     {
       title: 'SHAM Website',
