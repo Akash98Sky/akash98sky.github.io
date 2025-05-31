@@ -4,53 +4,59 @@
 import type { RefObject } from 'react';
 import Link from 'next/link';
 import { portfolioData } from '@/config/portfolio-data';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { FileText, ExternalLink, BookOpen } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import type { PublicationsSectionProps } from '@/interfaces/components';
 import type { PublicationItem } from '@/interfaces/portfolio';
 
+const PublicationItemDisplay = ({ publication, isLast }: { publication: PublicationItem, isLast: boolean }) => {
+  const monthStr = publication.month ? publication.month.toUpperCase() : '';
+  const yearStr = publication.year.toString();
 
-const PublicationCard = ({ publication }: { publication: PublicationItem }) => {
   return (
-    <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border rounded-xl">
-      <CardHeader>
-        <div className="flex items-start space-x-3">
-          <div className="flex-shrink-0 mt-1">
-            <BookOpen className="w-6 h-6 text-primary" />
-          </div>
-          <div>
-            <CardTitle className="text-xl font-semibold text-card-foreground">{publication.title}</CardTitle>
-            <CardDescription className="text-sm text-muted-foreground mt-1">
-              {publication.authors.join(', ')}
-            </CardDescription>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="flex-grow">
-        <p className="text-sm text-muted-foreground">
-          <span className="font-medium text-foreground">Venue:</span> {publication.venue}
+    <div className="flex flex-row">
+      {/* Date Column - fixed width, text-right */}
+      <div className="w-28 flex-shrink-0 text-right pr-5 pt-px">
+        <span className="inline-block bg-accent text-accent-foreground text-xs font-semibold px-2.5 py-1.5 rounded-md shadow">
+          {monthStr}, {yearStr}
+        </span>
+      </div>
+
+      {/* Timeline Gutter (Dot and Line) - fixed width, centered */}
+      <div className="w-10 flex-shrink-0 relative">
+        <div 
+          className={`absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-border 
+                      ${isLast ? 'h-3.5' : 'h-full'}`}
+        ></div>
+        <div className="absolute left-1/2 top-1.5 transform -translate-x-1/2 w-3.5 h-3.5 bg-primary rounded-full border-2 border-background shadow"></div>
+      </div>
+
+      {/* Content Column - flexible width */}
+      <div className="flex-grow pl-5 pb-10">
+        <h3 className="text-lg font-semibold text-foreground">{publication.title}</h3>
+        <p className="text-sm text-muted-foreground mt-1">
+          {publication.authors.join(', ')}
         </p>
-        <p className="text-sm text-muted-foreground">
-          <span className="font-medium text-foreground">Year:</span> {publication.year}
+        <p className="text-sm text-muted-foreground mt-1 italic">
+          {publication.venue}
         </p>
         {publication.doi && (
-          <p className="text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">DOI:</span> {publication.doi}
+          <p className="text-sm text-muted-foreground mt-1">
+            DOI: {publication.doi}
           </p>
         )}
-      </CardContent>
-      {publication.link && (
-        <CardFooter className="pt-0 flex justify-end">
-          <Link href={publication.link} target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" size="sm">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              View Publication
-            </Button>
-          </Link>
-        </CardFooter>
-      )}
-    </Card>
+        {publication.link && (
+          <div className="mt-3">
+            <Link href={publication.link} target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="sm" className="shadow-sm hover:shadow-md transition-shadow">
+                <ExternalLink className="mr-2 h-4 w-4" />
+                View Publication
+              </Button>
+            </Link>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
@@ -60,11 +66,15 @@ export function PublicationsSection({ publicationsRef }: PublicationsSectionProp
   return (
     <section id="publications" ref={publicationsRef} className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-semibold mb-12 text-foreground text-center">Publications</h2>
+        <h2 className="text-3xl font-semibold mb-16 text-foreground text-center">Publications</h2>
         {publications.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-3xl mx-auto">
             {publications.map((publication, index) => (
-              <PublicationCard key={index} publication={publication} />
+              <PublicationItemDisplay 
+                key={index} 
+                publication={publication} 
+                isLast={index === publications.length - 1} 
+              />
             ))}
           </div>
         ) : (

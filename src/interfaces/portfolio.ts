@@ -33,7 +33,7 @@ export interface ProjectItem {
   imageAiHint: string;
   tags: string[];
   liveDemoLink?: string;
-  githubLink?: string; // Made githubLink optional
+  githubLink?: string;
 }
 
 export interface PublicationItem {
@@ -41,6 +41,7 @@ export interface PublicationItem {
   authors: string[];
   venue: string; // e.g., Journal Name or Conference Proceedings
   year: number;
+  month: string; // e.g., "JAN", "FEB", "OCT"
   link?: string; // URL to the publication
   doi?: string; // Digital Object Identifier
 }
@@ -55,6 +56,6 @@ export interface PortfolioData {
   experience: ExperienceData;
   skills: SkillItem[];
   projects: ProjectItem[];
-  publications: PublicationItem[]; // Added publications
+  publications: PublicationItem[];
   achievements: AchievementItem[];
 }
