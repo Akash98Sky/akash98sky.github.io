@@ -58,7 +58,7 @@ export function PublicationsSection({ publicationsRef }: PublicationsSectionProp
   const publications = portfolioData.publications;
 
   return (
-    <section id="publications" ref={publicationsRef} className="py-20 bg-background">
+    <section id="publications" ref={publicationsRef} className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-semibold mb-12 text-foreground text-center">Publications</h2>
         {publications.length > 0 ? (

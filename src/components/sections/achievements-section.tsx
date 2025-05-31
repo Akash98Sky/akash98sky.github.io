@@ -21,7 +21,7 @@ export function AchievementsSection({ achievementsRef }: AchievementsSectionProp
   const achievements = portfolioData.achievements;
 
   return (
-    <section id="achievements" ref={achievementsRef} className="py-20 bg-secondary">
+    <section id="achievements" ref={achievementsRef} className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-semibold mb-12 text-foreground text-center">Achievements</h2>
         {achievements.length > 0 ? (
