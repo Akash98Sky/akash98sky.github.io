@@ -32,6 +32,9 @@ jobs:
         run: npm ci
 
       - name: Build Next.js app
+        env:
+          UMAMI_SCRIPT_URL: ${{ vars.UMAMI_SCRIPT_URL }}
+          UMAMI_DATA_WEBSITE_ID: ${{ secrets.UMAMI_DATA_WEBSITE_ID }} 
         run: npm run build # This uses 'next build' which respects output: 'export'
 
       - name: Setup Pages
