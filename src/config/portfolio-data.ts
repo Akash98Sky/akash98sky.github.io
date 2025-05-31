@@ -120,7 +120,7 @@ export const portfolioData: PortfolioData = {
     {
       title: "Effective Crop Prediction Using Deep Learning",
       authors: ["Akash Mondal", "Saikat Banerjee"],
-      venue: "2021 International Conference on Smart Generation Computing, Communication and Networking (SMARTGENCON), Pune, India",
+      venue: "International Conference on Smart Generation Computing, Communication and Networking (SMARTGENCON), Pune, India",
       year: 2021,
       month: "OCT",
       link: "https://ieeexplore.ieee.org/document/9645872",

@@ -68,7 +68,7 @@ export function PublicationsSection({ publicationsRef }: PublicationsSectionProp
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-semibold mb-16 text-foreground text-center">Publications</h2>
         {publications.length > 0 ? (
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             {publications.map((publication, index) => (
               <PublicationItemDisplay 
                 key={index} 
