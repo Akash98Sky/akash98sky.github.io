@@ -118,19 +118,11 @@ export const portfolioData: PortfolioData = {
   ],
   publications: [
     {
-      title: "A Novel Approach to Enhancing CI/CD Pipelines with Composite Actions",
-      authors: ["Akash Mondal", "Jane Doe"],
-      venue: "Journal of Software Engineering and Practices",
-      year: 2024,
-      link: "https://example.com/publication1",
-      doi: "10.1234/jsep.2024.001"
-    },
-    {
-      title: "Optimizing Message Consumption from Apache Pulsar using Custom Azure Functions",
-      authors: ["Akash Mondal", "John Smith"],
-      venue: "Proceedings of the International Conference on Cloud Computing",
-      year: 2023,
-      link: "https://example.com/publication2",
+      title: "Effective Crop Prediction Using Deep Learning",
+      authors: ["Akash Mondal", "Saikat Banerjee"],
+      venue: "2021 International Conference on Smart Generation Computing, Communication and Networking (SMARTGENCON), Pune, India",
+      year: 2021,
+      link: "https://ieeexplore.ieee.org/document/9645872",
     }
   ],
   achievements: [
