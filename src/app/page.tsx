@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ExperienceSection } from '@/components/sections/experience-section';
 import { ProjectsSection } from '@/components/sections/projects-section';
+import { PublicationsSection } from '@/components/sections/publications-section';
 import { AchievementsSection } from '@/components/sections/achievements-section';
 import { SkillsSection } from '@/components/sections/skills-section';
 import { portfolioData } from '@/config/portfolio-data';
@@ -17,6 +18,7 @@ export default function Home() {
   const experienceRef = useRef<HTMLElement>(null);
   const skillsRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<HTMLElement>(null);
+  const publicationsRef = useRef<HTMLElement>(null);
   const achievementsRef = useRef<HTMLElement>(null);
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -53,6 +55,9 @@ export default function Home() {
               <Button variant="link" onClick={() => scrollToSection(projectsRef)} className="text-foreground">
                 Projects
               </Button>
+              <Button variant="link" onClick={() => scrollToSection(publicationsRef)} className="text-foreground">
+                Publications
+              </Button>
               <Button variant="link" onClick={() => scrollToSection(achievementsRef)} className="text-foreground">
                 Achievements
               </Button>
@@ -65,6 +70,7 @@ export default function Home() {
         <ExperienceSection experienceRef={experienceRef} />
         <SkillsSection skillsRef={skillsRef} />
         <ProjectsSection projectsRef={projectsRef} />
+        <PublicationsSection publicationsRef={publicationsRef} />
         <AchievementsSection achievementsRef={achievementsRef} />
       </main>
 

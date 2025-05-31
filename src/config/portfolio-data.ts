@@ -105,7 +105,6 @@ export const portfolioData: PortfolioData = {
       imageAiHint: 'heritage archaeology website',
       tags: ['React', 'Next.js', 'Node.js', 'MongoDB', 'AWS', 'Strapi CMS'],
       liveDemoLink: 'https://sham.org.in/',
-      // githubLink: 'https://github.com/Akash98Sky/sham-website', // Removed GitHub link
     },
     {
       title: 'Flaavn',
@@ -116,6 +115,23 @@ export const portfolioData: PortfolioData = {
       tags: ['Flutter', 'Next.js', 'REST API'],
       githubLink: 'https://github.com/Akash98Sky/flaavn',
     },
+  ],
+  publications: [
+    {
+      title: "A Novel Approach to Enhancing CI/CD Pipelines with Composite Actions",
+      authors: ["Akash Mondal", "Jane Doe"],
+      venue: "Journal of Software Engineering and Practices",
+      year: 2024,
+      link: "https://example.com/publication1",
+      doi: "10.1234/jsep.2024.001"
+    },
+    {
+      title: "Optimizing Message Consumption from Apache Pulsar using Custom Azure Functions",
+      authors: ["Akash Mondal", "John Smith"],
+      venue: "Proceedings of the International Conference on Cloud Computing",
+      year: 2023,
+      link: "https://example.com/publication2",
+    }
   ],
   achievements: [
     {

@@ -36,6 +36,15 @@ export interface ProjectItem {
   githubLink?: string; // Made githubLink optional
 }
 
+export interface PublicationItem {
+  title: string;
+  authors: string[];
+  venue: string; // e.g., Journal Name or Conference Proceedings
+  year: number;
+  link?: string; // URL to the publication
+  doi?: string; // Digital Object Identifier
+}
+
 export interface AchievementItem {
   title: string;
   description: string;
@@ -46,5 +55,6 @@ export interface PortfolioData {
   experience: ExperienceData;
   skills: SkillItem[];
   projects: ProjectItem[];
+  publications: PublicationItem[]; // Added publications
   achievements: AchievementItem[];
 }
