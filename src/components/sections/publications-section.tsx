@@ -23,7 +23,7 @@ const PublicationItemDisplay = ({ publication, isLast }: { publication: Publicat
       </div>
 
       {/* Timeline Gutter (Dot and Line) - fixed width, centered */}
-      <div className="w-10 flex-shrink-0 relative">
+      <div className="md:w-10 flex-shrink-0 relative">
         <div 
           className={`absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-border 
                       ${isLast ? 'h-3.5' : 'h-full'}`}
