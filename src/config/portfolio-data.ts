@@ -91,7 +91,7 @@ export const portfolioData: PortfolioData = {
       title: 'Gemi Chat Bot',
       description:
         "Developed an AI Telegram assistant leveraging Gemini-Pro LLM for text/image/audio/file handling, deployed via Docker.",
-      imageUrl: 'https://placehold.co/600x400.png',
+      imageUrl: '/projects/gemi-bot.jpg',
       imageAiHint: 'ai chatbot telegram',
       tags: ['Python', 'asyncio', 'LLM', 'Gemini-Pro', 'FastAPI', 'Docker'],
       liveDemoLink: 'https://t.me/MyGemibot',
@@ -101,7 +101,7 @@ export const portfolioData: PortfolioData = {
       title: 'SHAM Website',
       description:
         "Built SHAM website (Society For Heritage, Archaeology & Management) with 10K+ monthly visitors, showcasing India's archaeological pursuits, heritage, and management activities.",
-      imageUrl: 'https://placehold.co/600x400.png',
+      imageUrl: '/projects/sham-website.png',
       imageAiHint: 'heritage archaeology website',
       tags: ['React', 'Next.js', 'Node.js', 'MongoDB', 'AWS', 'Strapi CMS'],
       liveDemoLink: 'https://sham.org.in/',
@@ -110,7 +110,7 @@ export const portfolioData: PortfolioData = {
       title: 'Flaavn',
       description:
         'Launched a cross-platform music streaming app (Flutter), allowing seamless usage on any platform (Mobile/Desktop/Web).',
-      imageUrl: 'https://placehold.co/600x400.png',
+      imageUrl: '/projects/flaavn.jpg',
       imageAiHint: 'music streaming mobile',
       tags: ['Flutter', 'Next.js', 'REST API'],
       githubLink: 'https://github.com/Akash98Sky/flaavn',
