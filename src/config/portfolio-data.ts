@@ -114,6 +114,7 @@ export const portfolioData: PortfolioData = {
       imageAiHint: 'music streaming mobile',
       tags: ['Flutter', 'Next.js', 'REST API'],
       githubLink: 'https://github.com/Akash98Sky/flaavn',
+      liveDemoLink: 'https://akash98sky.github.io/flaavn/',
     },
   ],
   publications: [
