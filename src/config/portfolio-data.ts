@@ -6,6 +6,8 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: "Akash Mondal",
     title: "Full Stack Engineer",
+    linkedinUrl: "https://www.linkedin.com/in/akash-mondal-338161194/",
+    resumeUrl: "/Akash_Mondal_Resume.pdf",
   },
   experience: {
     summary:

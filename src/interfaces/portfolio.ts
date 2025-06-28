@@ -4,6 +4,8 @@
 export interface PersonalInfo {
   name: string;
   title: string;
+  linkedinUrl?: string;
+  resumeUrl?: string;
 }
 
 export interface ExperienceItem {

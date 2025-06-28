@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { portfolioData } from '@/config/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, ExternalLink } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Icons } from '@/components/icons';
 
 // SVG definition for the splash clip path
 const SplashClipPathDefinition = () => (
@@ -18,8 +20,28 @@ const SplashClipPathDefinition = () => (
   </svg>
 );
 
+const LinkedInIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+
 export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<HTMLElement> }) {
   const { summary, profileImage, profileImageAiHint, items } = portfolioData.experience;
+  const { title, linkedinUrl, resumeUrl } = portfolioData.personalInfo;
 
   return (
     <section id="experience" ref={experienceRef} className="py-20 bg-background">
@@ -27,8 +49,26 @@ export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<
         <div className="flex flex-col-reverse items-center md:flex-row md:items-center mb-12">
           <div className="w-full md:w-2/3 md:pr-8 text-center md:text-left">
             <h2 className="text-3xl font-semibold mb-2 text-foreground">About Me</h2>
-            <p className="text-lg text-muted-foreground mb-6">{portfolioData.personalInfo.title}</p>
+            <p className="text-lg text-muted-foreground mb-6">{title}</p>
             <p className="text-muted-foreground leading-relaxed">{summary}</p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              {linkedinUrl && (
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+                  <Button>
+                    <LinkedInIcon className="mr-2 h-4 w-4" />
+                    Connect on LinkedIn
+                  </Button>
+                </a>
+              )}
+              {resumeUrl && (
+                <a href={resumeUrl} target="_blank" rel="noopener noreferrer" download>
+                  <Button variant="outline">
+                    <Icons.download className="mr-2 h-4 w-4" />
+                    Download Resume
+                  </Button>
+                </a>
+              )}
+            </div>
           </div>
           <div className="w-full md:w-1/3 mb-8 md:mb-0 flex justify-center md:justify-end">
             <SplashClipPathDefinition />
