@@ -21,6 +21,7 @@ export const portfolioData: PortfolioData = {
         companyUrl: "https://www.optum.in/",
         duration: "Dec 2024 - Present",
         descriptionPoints: [
+          "Integrated Sauce Labs into the UI automation project, achieving 95%+ cross‐platform test consistency and enabling 4x parallel test execution speed, resulting in a 40% reduction in overall test cycle time.",
           "Spearheaded the migration of CI/CD pipelines from Azure DevOps to GitHub Actions, leveraging composite actions to achieve a 50% performance boost and reduce deployment failures by 25%.",
           "Automated SQL script generation via a .NET Console app, reducing manual data replication efforts by 90% for demo environments.",
           "Mentored 5+ junior developers through code reviews and pair programming, improving team productivity by 20% and fostering a culture of knowledge-sharing.",
