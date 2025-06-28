@@ -9,6 +9,7 @@ import { PublicationsSection } from '@/components/sections/publications-section'
 import { AchievementsSection } from '@/components/sections/achievements-section';
 import { SkillsSection } from '@/components/sections/skills-section';
 import { portfolioData } from '@/config/portfolio-data';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
   ref.current?.scrollIntoView({ behavior: 'smooth' });
@@ -44,23 +45,28 @@ export default function Home() {
       >
         <div className="container mx-auto px-4">
           <nav className="flex justify-between items-center">
-            <span className="font-bold text-xl text-foreground">{portfolioData.personalInfo.name}'s Portfolio</span>
-            <div className="hidden md:flex space-x-4">
-              <Button variant="link" onClick={() => scrollToSection(experienceRef)} className="text-foreground">
-                Experience
-              </Button>
-              <Button variant="link" onClick={() => scrollToSection(skillsRef)} className="text-foreground">
-                Skills
-              </Button>
-              <Button variant="link" onClick={() => scrollToSection(projectsRef)} className="text-foreground">
-                Projects
-              </Button>
-              <Button variant="link" onClick={() => scrollToSection(publicationsRef)} className="text-foreground">
-                Publications
-              </Button>
-              <Button variant="link" onClick={() => scrollToSection(achievementsRef)} className="text-foreground">
-                Achievements
-              </Button>
+            <div className="flex items-center gap-4">
+              <span className="font-bold text-xl text-foreground">{portfolioData.personalInfo.name}'s Portfolio</span>
+            </div>
+            <div className="flex items-center space-x-4">
+                <div className="hidden md:flex space-x-4">
+                    <Button variant="link" onClick={() => scrollToSection(experienceRef)} className="text-foreground">
+                        Experience
+                    </Button>
+                    <Button variant="link" onClick={() => scrollToSection(skillsRef)} className="text-foreground">
+                        Skills
+                    </Button>
+                    <Button variant="link" onClick={() => scrollToSection(projectsRef)} className="text-foreground">
+                        Projects
+                    </Button>
+                    <Button variant="link" onClick={() => scrollToSection(publicationsRef)} className="text-foreground">
+                        Publications
+                    </Button>
+                    <Button variant="link" onClick={() => scrollToSection(achievementsRef)} className="text-foreground">
+                        Achievements
+                    </Button>
+                </div>
+                <ThemeToggle />
             </div>
           </nav>
         </div>
