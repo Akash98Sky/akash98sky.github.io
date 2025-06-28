@@ -6,8 +6,8 @@ export const portfolioData: PortfolioData = {
   personalInfo: {
     name: "Akash Mondal",
     title: "Full Stack Engineer",
-    linkedinUrl: "https://www.linkedin.com/in/akash-mondal-338161194/",
-    resumeUrl: "/Akash_Mondal_Resume.pdf",
+    linkedinUrl: "https://www.linkedin.com/in/akash-mondal-se/",
+    resumeUrl: "https://drive.google.com/file/d/1_J7gei-lIPZKaLmgzQ_lUKu-NbfiQqae/view",
   },
   experience: {
     summary:
@@ -118,6 +118,15 @@ export const portfolioData: PortfolioData = {
       githubLink: 'https://github.com/Akash98Sky/flaavn',
       liveDemoLink: 'https://akash98sky.github.io/flaavn/',
     },
+    {
+      title: 'ACM Portfolio',
+      description: 'A personal portfolio website created for my dad.',
+      imageUrl: '/projects/acm-portfolio.png',
+      imageAiHint: 'portfolio website',
+      tags: ['Next.js', 'React', 'Tailwind CSS', 'ShadCN UI', 'Genkit', 'Email API'],
+      githubLink: 'https://github.com/Akash98Sky/acm-website',
+      liveDemoLink: 'https://abhoy.vercel.app/',
+    }
   ],
   publications: [
     {
