@@ -16,7 +16,7 @@ body {
     --popover-foreground: 212 11% 16%;
     --primary: 212 11% 16%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 20% 94%;
+    --secondary: 210 20% 96%;
     --secondary-foreground: 212 11% 16%;
     --muted: 210 20% 96%;
     --muted-foreground: 212 11% 45.1%;
@@ -84,5 +84,27 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.name-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: text-pop-up 0.5s ease-out forwards;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.name-letter:hover {
+  color: hsl(var(--accent));
+  transform: translateY(-4px);
+}
+
+@keyframes text-pop-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

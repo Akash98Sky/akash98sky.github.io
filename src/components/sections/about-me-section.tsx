@@ -39,13 +39,24 @@ const LinkedInIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export function AboutMeSection() {
   const { summary, profileImage, profileImageAiHint } = portfolioData.experience;
   const { name, title, linkedinUrl, resumeUrl, githubUrl } = portfolioData.personalInfo;
+  const greetingText = `I'm ${name}.`;
 
   return (
     <section id="about" className="py-20 pb-0 bg-background">
       <div className="container mx-auto px-4">
         <div className="flex flex-col-reverse items-center md:flex-row md:items-center">
           <div className="w-full md:w-2/3 md:pr-8 text-center md:text-left">
-            <h2 className="text-3xl font-semibold mb-2 text-foreground">I'm {name}.</h2>
+            <h2 className="text-3xl font-semibold mb-2 text-foreground">
+              {greetingText.split('').map((letter, index) => (
+                <span
+                  key={index}
+                  className="name-letter"
+                  style={{ animationDelay: `${0.3 + index * 0.05}s` }}
+                >
+                  {letter === ' ' ? '\u00A0' : letter}
+                </span>
+              ))}
+            </h2>
             <p className="text-lg text-muted-foreground mb-6">{title}</p>
             <p className="text-muted-foreground leading-relaxed">{summary}</p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
@@ -59,7 +70,7 @@ export function AboutMeSection() {
               )}
               {githubUrl && (
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Button variant="secondary">
+                  <Button variant="ghost">
                     <Icons.github className="mr-2 h-4 w-4" />
                     Follow on GitHub
                   </Button>
