@@ -1,8 +1,8 @@
-
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
+import { AboutMeSection } from '@/components/sections/about-me-section';
 import { ExperienceSection } from '@/components/sections/experience-section';
 import { ProjectsSection } from '@/components/sections/projects-section';
 import { PublicationsSection } from '@/components/sections/publications-section';
@@ -73,6 +73,7 @@ export default function Home() {
       </header>
 
       <main className="flex-grow">
+        <AboutMeSection />
         <ExperienceSection experienceRef={experienceRef} />
         <SkillsSection skillsRef={skillsRef} />
         <ProjectsSection projectsRef={projectsRef} />
