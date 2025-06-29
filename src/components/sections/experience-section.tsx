@@ -10,9 +10,9 @@ export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<
   const { items } = portfolioData.experience;
 
   return (
-    <section id="experience" ref={experienceRef} className="py-20 bg-secondary">
+    <section id="experience" ref={experienceRef} className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h3 className="text-2xl font-semibold mb-8 text-foreground text-center md:text-left">Professional Experience</h3>
+        <h3 className="text-2xl font-semibold mb-8 text-foreground text-center">Professional Experience</h3>
         <div className="space-y-8">
           {items.map((item, index) => (
             <Card key={index} className="shadow-md hover:shadow-lg transition-shadow duration-300">

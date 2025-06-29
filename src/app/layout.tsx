@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: portfolioData.personalInfo.name + '\'s Portfolio',
-  description: 'Generated using Firebase Studio',
+  title: `Portfolio | ${portfolioData.personalInfo.name}`,
+  description: 'Portfolio website of Akash Mondal (Akash98Sky).'
 };
 
 export default function RootLayout({

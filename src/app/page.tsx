@@ -46,7 +46,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <nav className="flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <span className="font-bold text-xl text-foreground">{portfolioData.personalInfo.name}'s Portfolio</span>
+              <span className="font-bold text-xl text-foreground">Hey there 👋</span>
             </div>
             <div className="flex items-center space-x-4">
                 <div className="hidden md:flex space-x-4">
