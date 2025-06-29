@@ -62,7 +62,7 @@ export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<
               )}
               {githubUrl && (
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Button variant="secondary">
+                  <Button variant="ghost">
                     <Icons.github className="mr-2 h-4 w-4" />
                     Follow on GitHub
                   </Button>
