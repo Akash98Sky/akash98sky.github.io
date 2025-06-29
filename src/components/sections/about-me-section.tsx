@@ -106,7 +106,7 @@ export function AboutMeSection() {
               )}
               {githubUrl && (
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost">
+                  <Button variant="secondary">
                     <Icons.github className="mr-2 h-4 w-4" />
                     Follow on GitHub
                   </Button>
