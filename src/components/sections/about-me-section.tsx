@@ -2,6 +2,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { portfolioData } from '@/config/portfolio-data';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
@@ -41,21 +42,56 @@ export function AboutMeSection() {
   const { name, title, linkedinUrl, resumeUrl, githubUrl } = portfolioData.personalInfo;
   const greetingText = `I'm ${name}.`;
 
+  const [isShining, setIsShining] = useState(false);
+
+  // Trigger initial shine animation after the pop-up animation completes.
+  useEffect(() => {
+    // These constants are based on the CSS animation values
+    const popupAnimationDuration = 500; // 0.5s
+    const lastLetterDelay = 300 + (greetingText.length - 1) * 50; // 0.3s base + 0.05s stagger
+    const totalAnimationTime = popupAnimationDuration + lastLetterDelay;
+
+    const timer = setTimeout(() => {
+      setIsShining(true);
+    }, totalAnimationTime);
+
+    return () => clearTimeout(timer);
+  }, [greetingText.length]);
+
+  const handleMouseEnter = () => {
+    // Always trigger the shine on hover, unless it's already shining.
+    // The onAnimationEnd will handle resetting it.
+    if (!isShining) {
+      setIsShining(true);
+    }
+  };
+
+  const handleAnimationEnd = () => {
+    // Reset the state so the animation can be triggered again.
+    setIsShining(false);
+  };
+
   return (
     <section id="about" className="py-20 pb-0 bg-background">
       <div className="container mx-auto px-4">
         <div className="flex flex-col-reverse items-center md:flex-row md:items-center">
           <div className="w-full md:w-2/3 md:pr-8 text-center md:text-left">
             <h2 className="text-3xl font-semibold mb-2 text-foreground">
-              {greetingText.split('').map((letter, index) => (
-                <span
-                  key={index}
-                  className="name-letter"
-                  style={{ animationDelay: `${0.3 + index * 0.05}s` }}
-                >
-                  {letter === ' ' ? '\u00A0' : letter}
-                </span>
-              ))}
+              <div
+                className={`name-container ${isShining ? 'shine' : ''}`}
+                onMouseEnter={handleMouseEnter}
+                onAnimationEnd={handleAnimationEnd}
+              >
+                {greetingText.split('').map((letter, index) => (
+                  <span
+                    key={index}
+                    className="name-letter"
+                    style={{ animationDelay: `${0.3 + index * 0.05}s` }}
+                  >
+                    {letter === ' ' ? '\u00A0' : letter}
+                  </span>
+                ))}
+              </div>
             </h2>
             <p className="text-lg text-muted-foreground mb-6">{title}</p>
             <p className="text-muted-foreground leading-relaxed">{summary}</p>

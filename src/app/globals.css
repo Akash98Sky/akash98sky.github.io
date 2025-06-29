@@ -87,6 +87,13 @@ body {
   }
 }
 
+.name-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+}
+
 .name-letter {
   display: inline-block;
   opacity: 0;
@@ -102,9 +109,35 @@ body {
   transform: translateY(-4px);
 }
 
+.name-container.shine::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -150%;
+  width: 50%;
+  height: 120%;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    hsl(var(--accent) / 0.6),
+    transparent 80%
+  );
+  transform: skewX(-25deg);
+  animation: shine-sweep 1.2s ease-in-out;
+}
+
 @keyframes text-pop-up {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes shine-sweep {
+  from {
+    left: -150%;
+  }
+  to {
+    left: 150%;
   }
 }
