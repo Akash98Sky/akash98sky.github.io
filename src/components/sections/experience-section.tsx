@@ -51,7 +51,7 @@ export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<
             <h2 className="text-3xl font-semibold mb-2 text-foreground">About Me</h2>
             <p className="text-lg text-muted-foreground mb-6">{title}</p>
             <p className="text-muted-foreground leading-relaxed">{summary}</p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
               {linkedinUrl && (
                 <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
                   <Button>
@@ -62,7 +62,7 @@ export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<
               )}
               {githubUrl && (
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Button>
+                  <Button variant="secondary">
                     <Icons.github className="mr-2 h-4 w-4" />
                     Follow on GitHub
                   </Button>
