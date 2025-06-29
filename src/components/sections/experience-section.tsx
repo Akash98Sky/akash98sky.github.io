@@ -41,7 +41,7 @@ const LinkedInIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<HTMLElement> }) {
   const { summary, profileImage, profileImageAiHint, items } = portfolioData.experience;
-  const { title, linkedinUrl, resumeUrl } = portfolioData.personalInfo;
+  const { title, linkedinUrl, resumeUrl, githubUrl } = portfolioData.personalInfo;
 
   return (
     <section id="experience" ref={experienceRef} className="py-20 bg-background">
@@ -57,6 +57,14 @@ export function ExperienceSection({ experienceRef }: { experienceRef: RefObject<
                   <Button>
                     <LinkedInIcon className="mr-2 h-4 w-4" />
                     Connect on LinkedIn
+                  </Button>
+                </a>
+              )}
+              {githubUrl && (
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Button>
+                    <Icons.github className="mr-2 h-4 w-4" />
+                    Follow on GitHub
                   </Button>
                 </a>
               )}

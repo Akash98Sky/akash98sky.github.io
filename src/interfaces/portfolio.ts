@@ -6,6 +6,7 @@ export interface PersonalInfo {
   title: string;
   linkedinUrl?: string;
   resumeUrl?: string;
+  githubUrl?: string;
 }
 
 export interface ExperienceItem {

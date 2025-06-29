@@ -8,6 +8,7 @@ export const portfolioData: PortfolioData = {
     title: "Full Stack Engineer",
     linkedinUrl: "https://www.linkedin.com/in/akash-mondal-se/",
     resumeUrl: "https://drive.google.com/file/d/1_J7gei-lIPZKaLmgzQ_lUKu-NbfiQqae/view",
+    githubUrl: "https://github.com/Akash98Sky",
   },
   experience: {
     summary:
