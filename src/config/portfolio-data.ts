@@ -7,6 +7,7 @@ export const portfolioData: PortfolioData = {
     name: "Akash Mondal",
     title: "Full Stack Engineer",
     linkedinUrl: "https://www.linkedin.com/in/akash-mondal-se/",
+    linkedinFollowUrl: "https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=akash-mondal-se",
     resumeUrl: "https://drive.google.com/file/d/1_J7gei-lIPZKaLmgzQ_lUKu-NbfiQqae/view",
     githubUrl: "https://github.com/Akash98Sky",
   },

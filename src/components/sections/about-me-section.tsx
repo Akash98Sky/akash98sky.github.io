@@ -39,7 +39,7 @@ const LinkedInIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export function AboutMeSection() {
   const { summary, profileImage, profileImageAiHint } = portfolioData.experience;
-  const { name, title, linkedinUrl, resumeUrl, githubUrl } = portfolioData.personalInfo;
+  const { name, title, linkedinFollowUrl, resumeUrl, githubUrl } = portfolioData.personalInfo;
   const greetingText = `I'm ${name}.`;
 
   const [isShining, setIsShining] = useState(false);
@@ -96,8 +96,8 @@ export function AboutMeSection() {
             <p className="text-lg text-muted-foreground mb-6">{title}</p>
             <p className="text-muted-foreground leading-relaxed">{summary}</p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-              {linkedinUrl && (
-                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+              {linkedinFollowUrl && (
+                <a href={linkedinFollowUrl} target="_blank" rel="noopener noreferrer">
                   <Button>
                     <LinkedInIcon className="mr-2 h-4 w-4" />
                     Connect on LinkedIn
